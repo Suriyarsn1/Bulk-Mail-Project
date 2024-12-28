@@ -2,6 +2,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import * as XLSL from "xlsx"
 
+const baseURL=import.meta.env.VITE_APP_BASE_URL||"http://localhost:3000"
 
 function App() {
   const [msg,setmsg]=useState("")
@@ -25,7 +26,7 @@ function App() {
 
   function send(){
      setbtnmsg(true)
-     axios.post("http://localhost:3000/sendmail",{msg:msg,bulkEmail:bulkEmail}).then(function(data){
+     axios.post(`${baseURL}/sendmail`,{msg:msg,bulkEmail:bulkEmail}).then(function(data){
       console.log(data.data)
       if(data.data==true)
 
