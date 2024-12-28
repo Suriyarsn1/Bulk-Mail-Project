@@ -2,16 +2,15 @@ const express=require("express")
 const cors=require("cors")
 const mongoose=require("mongoose")
 const nodemailer=require("nodemailer")
+require ("dotenv").config();
 const app=express()
-app.use(cors())
 app.use(express.json())
-
-mongoose.connect("mongodb+srv://Suriya:rsn1@mycluster.mkm1t.mongodb.net/client?retryWrites=true&w=majority&appName=MyCluster").then(()=>{console.log("Sucess")})
+app.use(cors())
+mongoose.connect(process.env.DATABASE_URL).then(()=>{console.log("Sucess")})
 .catch(()=>{console.log("faild")})
 
 const mainId=mongoose.model("mainId",{},"user")
-const err=mongoose(msg)
-console.log(err)
+
 mainId.find().then(function(data)
 {
     
