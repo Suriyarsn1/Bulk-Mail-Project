@@ -10,7 +10,8 @@ mongoose.connect("mongodb+srv://Suriya:rsn1@mycluster.mkm1t.mongodb.net/client?r
 .catch(()=>{console.log("faild")})
 
 const mainId=mongoose.model("mainId",{},"user")
-
+const err=mongoose(msg)
+console.log(err)
 mainId.find().then(function(data)
 {
     
