@@ -13,15 +13,15 @@ app.use(express.json())
  }))
 app.use(bodyParser.json())
 
-mongoose.connect(process.env.DATABASE_URL,{
-}).then(()=>{console.log("Sucess")})
+mongoose.connect(process.env.DATABASE_URL).then(()=>{console.log("Sucess")})
 .catch(()=>{console.log("faild")})
 
-const mainId=mongoose.model("mainId",{},"user")
+const mainId=mongoose.model("mainId",{email:String,pass:String},"user")
 
 mainId.find().then(function(data)
+
 {
-    
+ 
     const transponter=nodemailer.createTransport({
         service:"gmail",
         auth:{
