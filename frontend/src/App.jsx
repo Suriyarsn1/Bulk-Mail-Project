@@ -26,8 +26,10 @@ function App() {
 
   function send(){
      setbtnmsg(true)
+     console.log(baseURL)
      axios.post(`${baseURL}/sendmail`,{msg:msg,bulkEmail:bulkEmail}).then(function(data){
       console.log(data.data)
+     
       if(data.data==true)
 
       {
